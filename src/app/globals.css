@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+  /* font-mono utilities alias to the display grotesque instead of a
+     separate monospace family — kept as a distinct Tailwind token so
+     tracked-caps labels/tags stay easy to spot in the markup. */
+  --font-mono: var(--font-display);
+
+  --color-ink: #0b0b0d;
+  --color-ink-soft: #17141a;
+  --color-paper: #fbf7f4;
+  /* The whole site is dark-themed now: paper-dim and stone-line are kept
+     as tokens (used all over as section/card surfaces and hairlines) but
+     redefined to dark values so every existing usage flips automatically. */
+  --color-paper-dim: #141218;
+  --color-pink: #e31c7f;
+  --color-pink-bright: #ff4fa6;
+  --color-magenta-deep: #4a0830;
+  --color-stone: #8c8177;
+  --color-stone-line: #2a2730;
+  --color-stone-line-dark: #2c2830;
+}
+
+@theme inline {
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-paper: var(--color-paper);
+  --color-paper-dim: var(--color-paper-dim);
+  --color-pink: var(--color-pink);
+  --color-pink-bright: var(--color-pink-bright);
+  --color-magenta-deep: var(--color-magenta-deep);
+  --color-stone: var(--color-stone);
+  --color-stone-line: var(--color-stone-line);
+  --color-stone-line-dark: var(--color-stone-line-dark);
+
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-pulse-glow: pulse-glow 5s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--color-pink);
+  color: var(--color-paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-pink);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *:not(.marquee-track),
+  *:not(.marquee-track)::before,
+  *:not(.marquee-track)::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

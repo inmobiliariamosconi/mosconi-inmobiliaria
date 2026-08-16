@@ -12,7 +12,7 @@ export function PropertyCard({ property }: { property: Property }) {
   return (
     <Link
       href={`/propiedades/${property.slug}`}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-stone-line bg-paper-dim transition-colors hover:border-pink"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-stone-line bg-paper-dim transition-colors hover:border-pink"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image

@@ -30,7 +30,7 @@ export function PropiedadesGrid() {
       />
 
       {filtered.length > 0 ? (
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-6">
           {filtered.map((property, i) => (
             <Reveal key={property.slug} delay={(i % 2) * 0.06}>
               <PropertyCard property={property} />

@@ -26,7 +26,7 @@ export default function Propiedades() {
           </Link>
         </Reveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
           {featured.map((property, i) => (
             <Reveal key={property.slug} delay={0.1 + i * 0.06}>
               <PropertyCard property={property} />

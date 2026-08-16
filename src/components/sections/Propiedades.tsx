@@ -1,11 +1,14 @@
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
-import { EmptyPropiedades } from "@/components/ui/EmptyPropiedades";
+import { PropertyCard } from "@/components/ui/PropertyCard";
+import { properties } from "@/lib/properties";
 
 export default function Propiedades() {
+  const featured = properties.slice(0, 3);
+
   return (
     <section className="border-b border-stone-line bg-ink py-24 sm:py-28">
-      <div className="mx-auto max-w-5xl px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <Reveal className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <div>
             <p className="font-mono text-[0.7rem] tracking-[0.24em] text-pink uppercase">
@@ -23,9 +26,13 @@ export default function Propiedades() {
           </Link>
         </Reveal>
 
-        <Reveal delay={0.1} className="mt-12">
-          <EmptyPropiedades />
-        </Reveal>
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {featured.map((property, i) => (
+            <Reveal key={property.slug} delay={0.1 + i * 0.06}>
+              <PropertyCard property={property} />
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );

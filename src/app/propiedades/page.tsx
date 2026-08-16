@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
-import { PropertyFilters } from "@/components/ui/PropertyFilters";
-import { EmptyPropiedades } from "@/components/ui/EmptyPropiedades";
+import { PropiedadesGrid } from "@/components/sections/PropiedadesGrid";
 
 export const metadata: Metadata = {
   title: "Propiedades | Mosconi Inmobiliaria",
@@ -20,10 +19,7 @@ export default function PropiedadesPage() {
 
       <section className="bg-ink py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <PropertyFilters />
-          <div className="mt-10">
-            <EmptyPropiedades />
-          </div>
+          <PropiedadesGrid />
         </div>
       </section>
     </>

@@ -33,6 +33,18 @@ export default function Propiedades() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={0.2} className="mt-12 flex justify-center">
+          <Link
+            href="/propiedades"
+            className="group inline-flex items-center gap-2.5 rounded-full bg-pink px-7 py-3.5 font-mono text-[0.75rem] tracking-[0.1em] uppercase text-paper transition-colors hover:bg-pink-bright"
+          >
+            Ver todas las propiedades
+            <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
+              →
+            </span>
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

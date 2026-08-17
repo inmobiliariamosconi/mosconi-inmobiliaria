@@ -37,7 +37,7 @@
   --color-stone-line: var(--color-stone-line);
   --color-stone-line-dark: var(--color-stone-line-dark);
 
-  --animate-marquee: marquee 32s linear infinite;
+  --animate-marquee: marquee 128s linear infinite;
   --animate-pulse-glow: pulse-glow 5s ease-in-out infinite;
   --animate-fade-up: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

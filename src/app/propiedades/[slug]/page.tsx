@@ -49,7 +49,7 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
         </Link>
 
         <div className="mt-8 grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_1fr]">
-          <Reveal>
+          <Reveal className="min-w-0">
             <PropertyGallery images={property.images} title={property.title} />
           </Reveal>
 

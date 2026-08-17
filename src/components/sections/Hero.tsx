@@ -86,7 +86,8 @@ export default function Hero() {
 
       <div className="relative overflow-hidden border-t border-paper/10 bg-ink/25 py-4 backdrop-blur-[2px]">
         <div className="marquee-track flex w-max animate-marquee gap-10 font-mono text-[0.7rem] tracking-[0.2em] text-paper/40 uppercase">
-          {[...zones, ...zones].map((zone, i) => (
+          {[...zones, ...zones, ...zones, ...zones, ...zones, ...zones, ...zones, ...zones].map(
+            (zone, i) => (
             <span key={`${zone.name}-${i}`} className="flex items-center gap-10">
               {zone.name}
               <span className="text-pink/50" aria-hidden>

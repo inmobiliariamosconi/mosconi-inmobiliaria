@@ -4,7 +4,7 @@ import { PropertyCard } from "@/components/ui/PropertyCard";
 import { properties } from "@/lib/properties";
 
 export default function Propiedades() {
-  const featured = properties.slice(0, 3);
+  const featured = properties.slice(0, 6);
 
   return (
     <section className="border-b border-stone-line bg-ink py-24 sm:py-28">

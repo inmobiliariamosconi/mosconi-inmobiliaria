@@ -27,11 +27,35 @@ export function Logo({
   size = 40,
   tone = "dark",
   priority = false,
+  variant = "default",
 }: {
   size?: number;
   tone?: "dark" | "light";
   priority?: boolean;
+  /** "wordmark" mirrors the client's logo: thin "Graciela" + bold "MOSCONI", both caps, with a centered pink "Inmobiliaria" below. */
+  variant?: "default" | "wordmark";
 }) {
+  if (variant === "wordmark") {
+    return (
+      <span className="inline-flex items-center gap-3">
+        <LogoMark size={size} priority={priority} />
+        <span className="flex flex-col items-center leading-none">
+          <span
+            className={`font-display text-[1rem] tracking-[-0.01em] uppercase ${
+              tone === "dark" ? "text-ink" : "text-paper"
+            }`}
+          >
+            <span className="font-normal">Graciela </span>
+            <span className="font-extrabold">Mosconi</span>
+          </span>
+          <span className="mt-1 font-mono text-[0.55rem] tracking-[0.22em] text-pink uppercase">
+            Inmobiliaria
+          </span>
+        </span>
+      </span>
+    );
+  }
+
   return (
     <span className="inline-flex items-center gap-3">
       <LogoMark size={size} priority={priority} />

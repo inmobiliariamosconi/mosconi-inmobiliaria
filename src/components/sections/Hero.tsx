@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { Glow } from "@/components/ui/Glow";
+import { TasacionCard } from "@/components/ui/TasacionCard";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { business, zones } from "@/lib/content";
 
@@ -83,17 +83,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2, ease: easeOut }}
           className="relative"
         >
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-stone-line shadow-2xl shadow-black/50 sm:aspect-[16/11] lg:aspect-[4/5]">
-            <Image
-              src="/mosconi-hero-v7.png"
-              alt="Oficina de Graciela Mosconi Inmobiliaria en Salta"
-              fill
-              priority
-              sizes="(min-width: 1024px) 40vw, 100vw"
-              className="object-cover object-[68%_center]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
-          </div>
+          <TasacionCard />
         </motion.div>
       </div>
 

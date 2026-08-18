@@ -31,7 +31,7 @@ export default function Header() {
     >
       <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-6 py-3.5 lg:px-8">
         <Link href="/" aria-label="Mosconi Inmobiliaria, inicio">
-          <Logo size={38} tone="light" priority />
+          <Logo size={38} tone="light" variant="wordmark" priority />
         </Link>
 
         <nav className="hidden items-center gap-9 md:flex">

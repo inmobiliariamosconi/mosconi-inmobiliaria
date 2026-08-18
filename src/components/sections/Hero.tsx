@@ -36,8 +36,8 @@ export default function Hero() {
         >
           <LogoMark size={80} priority />
           <div className="leading-none">
-            <p className="font-display text-4xl font-semibold tracking-[-0.01em] sm:text-5xl">
-              Mosconi
+            <p className="font-display text-4xl font-extrabold tracking-[-0.01em] uppercase sm:text-5xl">
+              Graciela Mosconi
             </p>
             <p className="mt-2 font-mono text-[0.65rem] tracking-[0.18em] text-pink uppercase sm:text-[0.7rem] sm:tracking-[0.32em]">
               Inmobiliaria · Salta, Argentina

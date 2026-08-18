@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { LogoMark } from "@/components/ui/Logo";
+import Link from "next/link";
+import { Glow } from "@/components/ui/Glow";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { business, zones } from "@/lib/content";
 
@@ -11,83 +12,88 @@ const initial = { opacity: 0, y: 18 };
 
 const offerings = ["Venta", "Alquiler", "Tasaciones", "Desarrollos inmobiliarios"];
 
+const proof = [
+  { value: `${business.yearsActive} años`, label: "de trayectoria en Salta" },
+  { value: `${zones.length} zonas`, label: "Salta Capital, Zona Norte y más" },
+  { value: `${offerings.length} servicios`, label: "venta, alquiler, tasaciones y desarrollos" },
+];
+
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[78vh] flex-col overflow-hidden bg-ink text-paper sm:min-h-[82vh] lg:min-h-[88vh]">
-      <div className="absolute inset-0">
-        <Image
-          src="/mosconi-hero-v7.png"
-          alt="Fachada de Mosconi Inmobiliaria en Salta, al atardecer"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[78%_center] brightness-[0.85] contrast-[1.06] sm:object-[58%_center] lg:object-[68%_center]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/25 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-transparent to-ink/20" />
-      </div>
+    <section className="relative overflow-hidden bg-ink text-paper">
+      <Glow className="-left-48 top-0" size={560} animate={false} />
+      <Glow className="right-0 top-1/2 -translate-y-1/2" size={420} color="bright" animate={false} />
 
-      <div className="relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-start px-6 pt-28 pb-16 sm:pt-32 lg:px-8 lg:pt-36">
+      <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-14 px-6 pt-32 pb-20 sm:pt-40 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-8 lg:pt-44 lg:pb-24">
         <motion.div
           initial={initial}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: easeOut }}
-          className="flex items-center gap-5"
+          transition={{ duration: 0.7, ease: easeOut }}
         >
-          <LogoMark size={80} priority />
-          <div className="leading-none">
-            <p className="font-display text-4xl tracking-[-0.01em] uppercase sm:text-5xl">
-              <span className="font-normal">Graciela </span>
-              <span className="font-extrabold">Mosconi</span>
-            </p>
-            <p className="mt-2 flex h-[11px] items-start overflow-hidden font-mono text-[0.65rem] tracking-[0.18em] text-pink uppercase sm:h-3 sm:text-[0.7rem] sm:tracking-[0.32em]">
-              <span
-                aria-hidden
-                className="invisible hidden shrink-0 font-display text-4xl leading-none font-normal normal-case tracking-[-0.01em] sm:inline sm:text-5xl"
-              >
-                Graciela{" "}
+          <p className="font-mono text-[0.7rem] tracking-[0.24em] text-pink uppercase">
+            Venta · Alquiler · Tasaciones
+          </p>
+
+          <h1 className="mt-6 max-w-xl font-display text-4xl leading-[1.05] font-normal tracking-[-0.02em] text-paper sm:text-5xl lg:text-6xl">
+            Asesoramiento inmobiliario en Salta, con{" "}
+            <span className="font-extrabold text-pink">{business.yearsActive} años</span> de
+            trayectoria.
+          </h1>
+
+          <p className="mt-6 max-w-md font-body text-base leading-relaxed text-paper/65 sm:text-lg">
+            Especializada en venta y alquiler de propiedades, tasaciones y desarrollos
+            inmobiliarios, con asesoramiento personalizado para familias, inversores y
+            compradores locales y extranjeros.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Link
+              href="/propiedades"
+              className="group inline-flex items-center gap-2.5 rounded-full bg-pink px-7 py-3.5 font-mono text-[0.75rem] tracking-[0.1em] uppercase text-paper transition-colors hover:bg-pink-bright"
+            >
+              Ver propiedades
+              <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
+                →
               </span>
-              <span className="shrink-0">Inmobiliaria</span>
-            </p>
+            </Link>
+            <a
+              href={business.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 font-mono text-[0.75rem] tracking-[0.1em] text-paper uppercase ring-1 ring-paper/25 ring-inset transition-colors hover:text-pink hover:ring-pink"
+            >
+              <WhatsAppIcon size={16} />
+              WhatsApp
+            </a>
           </div>
+
+          <dl className="mt-12 flex flex-wrap gap-x-8 gap-y-5 border-t border-stone-line pt-8">
+            {proof.map((item) => (
+              <div key={item.value}>
+                <dt className="font-display text-2xl font-semibold text-paper">{item.value}</dt>
+                <dd className="mt-1 font-body text-xs text-stone">{item.label}</dd>
+              </div>
+            ))}
+          </dl>
         </motion.div>
 
         <motion.div
-          initial={initial}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: easeOut }}
-          className="mt-10 flex max-w-lg flex-wrap items-center gap-x-2.5 gap-y-1 font-display text-xl leading-snug font-medium text-paper/90 sm:text-2xl lg:text-3xl"
+          transition={{ duration: 0.8, delay: 0.2, ease: easeOut }}
+          className="relative"
         >
-          {offerings.map((item, i) => (
-            <span key={item} className="flex items-center gap-x-2.5">
-              {item}
-              {i < offerings.length - 1 && (
-                <span className="text-pink" aria-hidden>
-                  ·
-                </span>
-              )}
-            </span>
-          ))}
-        </motion.div>
-
-        <motion.div
-          initial={initial}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3, ease: easeOut }}
-          className="relative mt-10"
-        >
-          <a
-            href={business.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2.5 rounded-full bg-pink px-7 py-3.5 font-mono text-[0.75rem] tracking-[0.1em] uppercase text-paper transition-colors hover:bg-pink-bright"
-          >
-            <WhatsAppIcon size={18} />
-            Escribinos por WhatsApp
-            <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
-              →
-            </span>
-          </a>
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-stone-line shadow-2xl shadow-black/50 sm:aspect-[16/11] lg:aspect-[4/5]">
+            <Image
+              src="/mosconi-hero-v7.png"
+              alt="Oficina de Graciela Mosconi Inmobiliaria en Salta"
+              fill
+              priority
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="object-cover object-[68%_center]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
+          </div>
         </motion.div>
       </div>
 
@@ -95,13 +101,14 @@ export default function Hero() {
         <div className="marquee-track flex w-max animate-marquee gap-10 font-mono text-[0.7rem] tracking-[0.2em] text-paper/40 uppercase">
           {[...zones, ...zones, ...zones, ...zones, ...zones, ...zones, ...zones, ...zones].map(
             (zone, i) => (
-            <span key={`${zone.name}-${i}`} className="flex items-center gap-10">
-              {zone.name}
-              <span className="text-pink/50" aria-hidden>
-                ·
+              <span key={`${zone.name}-${i}`} className="flex items-center gap-10">
+                {zone.name}
+                <span className="text-pink/50" aria-hidden>
+                  ·
+                </span>
               </span>
-            </span>
-          ))}
+            ),
+          )}
         </div>
       </div>
     </section>

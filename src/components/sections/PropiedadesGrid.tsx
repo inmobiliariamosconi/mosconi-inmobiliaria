@@ -4,9 +4,9 @@ import { useMemo, useState } from "react";
 import { PropertyFilters } from "@/components/ui/PropertyFilters";
 import { PropertyCard } from "@/components/ui/PropertyCard";
 import { Reveal } from "@/components/ui/Reveal";
-import { properties } from "@/lib/properties";
+import type { Property } from "@/lib/properties";
 
-export function PropiedadesGrid() {
+export function PropiedadesGrid({ properties }: { properties: Property[] }) {
   const [operation, setOperation] = useState("Todas");
   const [zone, setZone] = useState<string | null>(null);
 
@@ -17,8 +17,21 @@ export function PropiedadesGrid() {
         const matchesZone = !zone || p.zone === zone;
         return matchesOperation && matchesZone;
       }),
-    [operation, zone],
+    [properties, operation, zone],
   );
+
+  if (properties.length === 0) {
+    return (
+      <div className="flex flex-col items-center gap-4 rounded-2xl border border-dashed border-stone-line bg-ink-soft px-8 py-16 text-center">
+        <h3 className="font-display text-xl font-medium text-paper">
+          Estamos preparando nuestra selección de propiedades
+        </h3>
+        <p className="max-w-md font-body text-sm leading-relaxed text-stone">
+          Muy pronto vas a poder ver acá nuestro portafolio de venta y alquiler.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div>

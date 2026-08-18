@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 import { Archivo, Instrument_Sans } from "next/font/google";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp";
 import { MotionProvider } from "@/components/MotionProvider";
 import "./globals.css";
 
@@ -28,12 +25,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="es" className={`${archivo.variable} ${instrumentSans.variable}`}>
       <body className="flex min-h-screen flex-col bg-ink text-paper antialiased">
-        <MotionProvider>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <FloatingWhatsApp />
-        </MotionProvider>
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

@@ -5,10 +5,16 @@ import { PropertyGallery } from "@/components/ui/PropertyGallery";
 import { Reveal } from "@/components/ui/Reveal";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { whatsappLink } from "@/lib/content";
-import { getPropertyBySlug, properties } from "@/lib/properties";
+import { getPropertyBySlug, getPublishedSlugs } from "@/lib/properties";
 
-export function generateStaticParams() {
-  return properties.map((property) => ({ slug: property.slug }));
+// New properties created after the last deploy don't have a static page
+// yet — dynamicParams lets Next.js render (and then cache) them on first
+// request instead of 404ing.
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const slugs = await getPublishedSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 type PropertyPageProps = {
@@ -17,7 +23,7 @@ type PropertyPageProps = {
 
 export async function generateMetadata({ params }: PropertyPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const property = getPropertyBySlug(slug);
+  const property = await getPropertyBySlug(slug);
   if (!property) return {};
 
   return {
@@ -28,12 +34,13 @@ export async function generateMetadata({ params }: PropertyPageProps): Promise<M
 
 export default async function PropertyPage({ params }: PropertyPageProps) {
   const { slug } = await params;
-  const property = getPropertyBySlug(slug);
+  const property = await getPropertyBySlug(slug);
   if (!property) notFound();
 
   const meta = [
     property.surfaceTotal,
     property.surfaceCovered,
+    property.rooms ? `${property.rooms} ambientes` : null,
     property.bedrooms ? `${property.bedrooms} dormitorios` : null,
     property.bathrooms ? `${property.bathrooms} baño${property.bathrooms > 1 ? "s" : ""}` : null,
   ].filter((value): value is string => Boolean(value));

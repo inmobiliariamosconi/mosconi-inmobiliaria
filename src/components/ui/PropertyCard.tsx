@@ -5,6 +5,7 @@ import type { Property } from "@/lib/properties";
 export function PropertyCard({ property }: { property: Property }) {
   const meta = [
     property.surfaceTotal,
+    property.rooms ? `${property.rooms} amb.` : null,
     property.bedrooms ? `${property.bedrooms} dorm.` : null,
     property.bathrooms ? `${property.bathrooms} baño${property.bathrooms > 1 ? "s" : ""}` : null,
   ].filter(Boolean);

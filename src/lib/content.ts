@@ -23,7 +23,6 @@ export const navLinks = [
   { href: "/", label: "Inicio" },
   { href: "/propiedades", label: "Propiedades" },
   { href: "/tasaciones", label: "Tasaciones" },
-  { href: "/contacto", label: "Contacto" },
 ];
 
 export type Zone = {

@@ -13,14 +13,32 @@ type ImageUploaderProps = {
   onChange: (next: UploadedImage[]) => void;
 };
 
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+const ACCEPTED_TYPES = ["image/jpeg", "image/png", "image/webp", "image/avif", "image/gif"];
+
 export function ImageUploader({ folderId, value, onChange }: ImageUploaderProps) {
   const [uploadingCount, setUploadingCount] = useState(0);
   const [error, setError] = useState<string | null>(null);
 
   async function handleFiles(fileList: FileList | null) {
     if (!fileList || fileList.length === 0) return;
-    const files = Array.from(fileList);
-    setError(null);
+    const rejected: string[] = [];
+    const files = Array.from(fileList).filter((file) => {
+      if (!ACCEPTED_TYPES.includes(file.type)) {
+        rejected.push(`${file.name}: tipo de archivo no permitido`);
+        return false;
+      }
+      if (file.size > MAX_FILE_SIZE) {
+        rejected.push(`${file.name}: supera el máximo de 10MB`);
+        return false;
+      }
+      return true;
+    });
+
+    if (files.length === 0) {
+      if (rejected.length > 0) setError(`No se pudieron subir algunas fotos: ${rejected.join("; ")}`);
+      return;
+    }
     setUploadingCount(files.length);
 
     const supabase = createClient();
@@ -38,14 +56,14 @@ export function ImageUploader({ folderId, value, onChange }: ImageUploaderProps)
     );
 
     const uploaded: UploadedImage[] = [];
-    const failures: string[] = [];
+    const failures: string[] = [...rejected];
     for (const result of results) {
       if (result.status === "fulfilled") uploaded.push(result.value);
       else failures.push(result.reason instanceof Error ? result.reason.message : "Error desconocido");
     }
 
     if (uploaded.length > 0) onChange([...value, ...uploaded]);
-    if (failures.length > 0) setError(`No se pudieron subir algunas fotos: ${failures.join("; ")}`);
+    setError(failures.length > 0 ? `No se pudieron subir algunas fotos: ${failures.join("; ")}` : null);
     setUploadingCount(0);
   }
 

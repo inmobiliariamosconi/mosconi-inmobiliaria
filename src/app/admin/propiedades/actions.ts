@@ -92,6 +92,28 @@ async function saveImages(
   if (insertError) throw new Error(insertError.message);
 }
 
+/** Server-side floor validation — the form's `min="0"` is client-side only and trivially bypassable. */
+function validatePropertyData(data: PropertyInsert): string | null {
+  if (!data.title) return "El título es obligatorio.";
+  if (!data.property_type) return "Elegí un tipo de propiedad.";
+  if (!data.operation) return "Elegí una operación.";
+  if (!data.slug) return "No se pudo generar el slug a partir del título.";
+
+  const nonNegativeFields: [string, number | null | undefined][] = [
+    ["precio", data.price],
+    ["superficie total", data.surface_total],
+    ["superficie cubierta", data.surface_covered],
+    ["dormitorios", data.bedrooms],
+    ["baños", data.bathrooms],
+    ["ambientes", data.rooms],
+  ];
+  for (const [label, value] of nonNegativeFields) {
+    if (value != null && value < 0) return `El valor de "${label}" no puede ser negativo.`;
+  }
+
+  return null;
+}
+
 function revalidatePublicPaths(slug?: string) {
   revalidatePath("/");
   revalidatePath("/propiedades");
@@ -109,10 +131,8 @@ export async function createProperty(
 ): Promise<PropertyFormState> {
   const { data, imagePaths } = buildPropertyInsert(formData);
 
-  if (!data.title) return { error: "El título es obligatorio." };
-  if (!data.property_type) return { error: "Elegí un tipo de propiedad." };
-  if (!data.operation) return { error: "Elegí una operación." };
-  if (!data.slug) return { error: "No se pudo generar el slug a partir del título." };
+  const validationError = validatePropertyData(data);
+  if (validationError) return { error: validationError };
 
   const supabase = await createClient();
   const { data: inserted, error } = await supabase
@@ -146,10 +166,8 @@ export async function updateProperty(
 ): Promise<PropertyFormState> {
   const { data, imagePaths } = buildPropertyInsert(formData);
 
-  if (!data.title) return { error: "El título es obligatorio." };
-  if (!data.property_type) return { error: "Elegí un tipo de propiedad." };
-  if (!data.operation) return { error: "Elegí una operación." };
-  if (!data.slug) return { error: "No se pudo generar el slug a partir del título." };
+  const validationError = validatePropertyData(data);
+  if (validationError) return { error: validationError };
 
   const supabase = await createClient();
 

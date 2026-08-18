@@ -36,11 +36,18 @@ export default function Hero() {
         >
           <LogoMark size={80} priority />
           <div className="leading-none">
-            <p className="font-display text-4xl font-extrabold tracking-[-0.01em] uppercase sm:text-5xl">
-              Graciela Mosconi
+            <p className="font-display text-4xl tracking-[-0.01em] uppercase sm:text-5xl">
+              <span className="font-normal">Graciela </span>
+              <span className="font-extrabold">Mosconi</span>
             </p>
-            <p className="mt-2 font-mono text-[0.65rem] tracking-[0.18em] text-pink uppercase sm:text-[0.7rem] sm:tracking-[0.32em]">
-              Inmobiliaria · Salta, Argentina
+            <p className="mt-2 flex h-[11px] items-start overflow-hidden font-mono text-[0.65rem] tracking-[0.18em] text-pink uppercase sm:h-3 sm:text-[0.7rem] sm:tracking-[0.32em]">
+              <span
+                aria-hidden
+                className="invisible hidden shrink-0 font-display text-4xl leading-none font-normal normal-case tracking-[-0.01em] sm:inline sm:text-5xl"
+              >
+                Graciela{" "}
+              </span>
+              <span className="shrink-0">Inmobiliaria</span>
             </p>
           </div>
         </motion.div>

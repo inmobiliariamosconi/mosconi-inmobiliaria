@@ -22,7 +22,7 @@ const dmSerifDisplay = DM_Serif_Display({
 });
 
 const description =
-  "Inmobiliaria en Salta especializada en venta y alquiler de propiedades, tasaciones y desarrollos inmobiliarios. Más de 21 años de trayectoria en Salta Capital y el interior de la provincia.";
+  "Venta, alquiler, administración y tasación de propiedades en Salta. Más de 21 años de experiencia y asesoramiento inmobiliario profesional.";
 
 const siteTitle = "Inmobiliaria Graciela Mosconi | Salta";
 

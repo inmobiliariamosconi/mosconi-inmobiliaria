@@ -13,10 +13,7 @@ const initial = { opacity: 0, y: 18 };
 const proof = [
   { value: `${business.yearsActive} años`, label: "de trayectoria en Salta" },
   { value: "Salta e interior", label: "cobertura en toda la provincia" },
-  {
-    value: "Servicios integrales",
-    label: "venta, alquiler, tasaciones, desarrollos y administraciones",
-  },
+  { value: "Servicios integrales", label: "venta, alquiler, tasaciones y más" },
 ];
 
 export default function Hero() {
@@ -36,10 +33,13 @@ export default function Hero() {
           </p>
 
           <h1 className="mt-6 max-w-xl font-display text-4xl leading-[1.05] font-normal tracking-[-0.02em] text-paper sm:text-5xl lg:text-6xl">
-            Asesoramiento inmobiliario en Salta, con{" "}
-            <span className="font-extrabold text-pink">{business.yearsActive} años</span> de
-            trayectoria.
+            &ldquo;Donde tus proyectos comienzan a hacerse realidad.&rdquo;
           </h1>
+
+          <p className="mt-3 font-display text-3xl text-paper sm:text-4xl lg:text-5xl">
+            <span className="font-extrabold text-pink">{business.yearsActive} años</span> de
+            trayectoria
+          </p>
 
           <p className="mt-6 max-w-md font-body text-base leading-relaxed text-paper/65 sm:text-lg">
             Especializada en tasaciones de propiedades, y también en venta, alquiler y
@@ -68,10 +68,10 @@ export default function Hero() {
             </a>
           </div>
 
-          <dl className="mt-12 flex flex-wrap gap-x-8 gap-y-5 border-t border-stone-line pt-8">
+          <dl className="mt-12 grid grid-cols-1 gap-y-6 border-t border-stone-line pt-8 sm:grid-cols-3 sm:gap-x-6">
             {proof.map((item) => (
               <div key={item.value}>
-                <dt className="font-display text-2xl font-semibold text-paper">{item.value}</dt>
+                <dt className="font-display text-xl font-semibold text-paper">{item.value}</dt>
                 <dd className="mt-1 font-body text-xs text-stone">{item.label}</dd>
               </div>
             ))}

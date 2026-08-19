@@ -10,12 +10,13 @@ import { business, zones } from "@/lib/content";
 const easeOut = [0.16, 1, 0.3, 1] as const;
 const initial = { opacity: 0, y: 18 };
 
-const offerings = ["Venta", "Alquiler", "Tasaciones", "Desarrollos inmobiliarios"];
-
 const proof = [
   { value: `${business.yearsActive} años`, label: "de trayectoria en Salta" },
-  { value: `${zones.length} zonas`, label: "Salta Capital, Zona Norte y más" },
-  { value: `${offerings.length} servicios`, label: "venta, alquiler, tasaciones y desarrollos" },
+  { value: "Salta e interior", label: "cobertura en toda la provincia" },
+  {
+    value: "Servicios integrales",
+    label: "venta, alquiler, tasaciones, desarrollos y administraciones",
+  },
 ];
 
 export default function Hero() {
@@ -31,7 +32,7 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: easeOut }}
         >
           <p className="font-mono text-[0.7rem] tracking-[0.24em] text-pink uppercase">
-            Venta · Alquiler · Tasaciones
+            Venta · Alquiler · Tasaciones · Administraciones
           </p>
 
           <h1 className="mt-6 max-w-xl font-display text-4xl leading-[1.05] font-normal tracking-[-0.02em] text-paper sm:text-5xl lg:text-6xl">
@@ -41,9 +42,9 @@ export default function Hero() {
           </h1>
 
           <p className="mt-6 max-w-md font-body text-base leading-relaxed text-paper/65 sm:text-lg">
-            Especializada en venta y alquiler de propiedades, tasaciones y desarrollos
-            inmobiliarios, con asesoramiento personalizado para familias, inversores y
-            compradores locales y extranjeros.
+            Especializada en tasaciones de propiedades, y también en venta, alquiler y
+            desarrollos inmobiliarios, con asesoramiento personalizado para familias,
+            inversores y compradores locales y extranjeros.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">

@@ -2,15 +2,15 @@ import Link from "next/link";
 import { FacebookIcon } from "@/components/ui/FacebookIcon";
 import { Logo } from "@/components/ui/Logo";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
-import { business, navLinks, zones } from "@/lib/content";
+import { business, navLinks } from "@/lib/content";
 
 export default function Footer() {
   return (
     <footer className="border-t border-stone-line-dark bg-ink text-paper">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.4fr_1fr]">
           <div>
-            <Logo size={40} tone="light" />
+            <Logo size={40} tone="light" variant="wordmark" />
             <p className="mt-5 max-w-xs font-body text-sm leading-relaxed text-paper/60">
               {business.description}
             </p>
@@ -49,19 +49,6 @@ export default function Footer() {
                   >
                     {link.label}
                   </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className="font-mono text-[0.68rem] tracking-[0.2em] text-paper/40 uppercase">
-              Zonas donde operamos
-            </p>
-            <ul className="mt-4 space-y-2.5">
-              {zones.map((zone) => (
-                <li key={zone.name} className="font-body text-sm text-paper/75">
-                  {zone.name}
                 </li>
               ))}
             </ul>

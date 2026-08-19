@@ -32,14 +32,9 @@ export default function Hero() {
             Venta · Alquiler · Tasaciones · Administraciones
           </p>
 
-          <h1 className="mt-6 max-w-xl font-display text-4xl leading-[1.05] font-normal tracking-[-0.02em] text-paper sm:text-5xl lg:text-6xl">
-            &ldquo;Donde tus proyectos comienzan a hacerse realidad.&rdquo;
+          <h1 className="mt-6 max-w-xl font-serif text-4xl leading-[1.05] text-paper sm:text-5xl lg:text-6xl">
+            Tu propiedad vale más cuando existe una <span className="text-pink">estrategia.</span>
           </h1>
-
-          <p className="mt-3 font-display text-3xl text-paper sm:text-4xl lg:text-5xl">
-            <span className="font-extrabold text-pink">{business.yearsActive} años</span> de
-            trayectoria
-          </p>
 
           <p className="mt-6 max-w-md font-body text-base leading-relaxed text-paper/65 sm:text-lg">
             Especializada en tasaciones de propiedades, y también en venta, alquiler y

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo, Instrument_Sans } from "next/font/google";
+import { Archivo, DM_Serif_Display, Instrument_Sans } from "next/font/google";
 import { MotionProvider } from "@/components/MotionProvider";
 import "./globals.css";
 
@@ -15,6 +15,12 @@ const instrumentSans = Instrument_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
+const dmSerifDisplay = DM_Serif_Display({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
 export const metadata: Metadata = {
   title: "Mosconi Inmobiliaria | Salta",
   description:
@@ -23,7 +29,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es" className={`${archivo.variable} ${instrumentSans.variable}`}>
+    <html
+      lang="es"
+      className={`${archivo.variable} ${instrumentSans.variable} ${dmSerifDisplay.variable}`}
+    >
       <body className="flex min-h-screen flex-col bg-ink text-paper antialiased">
         <MotionProvider>{children}</MotionProvider>
       </body>

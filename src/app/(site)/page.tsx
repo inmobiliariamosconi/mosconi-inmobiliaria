@@ -8,8 +8,8 @@ export default function Home() {
     <>
       <Hero />
       <Propiedades />
-      <Servicios />
       <ClosingCta />
+      <Servicios />
     </>
   );
 }

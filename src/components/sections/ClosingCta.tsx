@@ -13,11 +13,10 @@ export default function ClosingCta() {
             Nosotros
           </p>
           <p className="mt-6 font-display text-3xl leading-snug font-medium tracking-[-0.01em] sm:text-4xl">
-            &ldquo;Acompañamos cada operación con transparencia y profesionalismo, para que la
-            decisión más grande se sienta simple.&rdquo;
+            &ldquo;Donde tus proyectos comienzan a hacerse realidad.&rdquo;
           </p>
           <p className="mt-6 font-body text-sm text-paper/55">
-            Más de {business.yearsActive} años de confianza, resultados y trayectoria en Salta.
+            {business.yearsActive} años de trayectoria.
           </p>
         </Reveal>
 

@@ -27,15 +27,49 @@ export const navLinks = [
 
 export type Zone = {
   name: string;
-  descriptor: string;
 };
 
+// Barrios/áreas dentro de la ciudad de Salta Capital — geográficamente son
+// parte de la misma ciudad (el departamento "Capital"), no zonas aparte, así
+// que se agrupan bajo el filtro "Salta Capital" en vez de listarse como
+// zonas paralelas a ella.
+export const saltaCapitalNeighborhoods = [
+  "Zona Norte",
+  "Tres Cerritos",
+  "San Lorenzo",
+  "Vaqueros",
+];
+
+// El resto de los departamentos de la provincia de Salta (todos menos
+// Capital, representado arriba como "Salta Capital").
+export const interiorDepartments = [
+  "Anta",
+  "Cachi",
+  "Cafayate",
+  "Cerrillos",
+  "Chicoana",
+  "General Güemes",
+  "General José de San Martín",
+  "Guachipas",
+  "Iruya",
+  "La Caldera",
+  "La Candelaria",
+  "La Poma",
+  "La Viña",
+  "Los Andes",
+  "Metán",
+  "Molinos",
+  "Orán",
+  "Rivadavia",
+  "Rosario de la Frontera",
+  "Rosario de Lerma",
+  "San Carlos",
+  "Santa Victoria",
+];
+
 export const zones: Zone[] = [
-  { name: "Salta Capital", descriptor: "El corazón de la ciudad" },
-  { name: "Zona Norte", descriptor: "Crecimiento y nuevos desarrollos" },
-  { name: "Tres Cerritos", descriptor: "Residencial y consolidado" },
-  { name: "San Lorenzo", descriptor: "Verde, tranquilo, a metros del cerro" },
-  { name: "Vaqueros", descriptor: "Naturaleza a la salida de la ciudad" },
+  { name: "Salta Capital" },
+  ...interiorDepartments.map((name) => ({ name })),
 ];
 
 export type Service = {

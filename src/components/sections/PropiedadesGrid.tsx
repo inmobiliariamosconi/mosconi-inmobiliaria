@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { PropertyFilters } from "@/components/ui/PropertyFilters";
 import { PropertyCard } from "@/components/ui/PropertyCard";
 import { Reveal } from "@/components/ui/Reveal";
+import { saltaCapitalNeighborhoods } from "@/lib/content";
 import type { Property } from "@/lib/properties";
 
 export function PropiedadesGrid({ properties }: { properties: Property[] }) {
@@ -14,7 +15,13 @@ export function PropiedadesGrid({ properties }: { properties: Property[] }) {
     () =>
       properties.filter((p) => {
         const matchesOperation = operation === "Todas" || p.operation === operation;
-        const matchesZone = !zone || p.zone === zone;
+        // "Salta Capital" agrupa sus barrios (Zona Norte, Tres Cerritos, San
+        // Lorenzo, Vaqueros) — una propiedad en cualquiera de ellos cuenta
+        // como parte del filtro "Salta Capital".
+        const matchesZone =
+          !zone ||
+          p.zone === zone ||
+          (zone === "Salta Capital" && saltaCapitalNeighborhoods.includes(p.zone ?? ""));
         return matchesOperation && matchesZone;
       }),
     [properties, operation, zone],

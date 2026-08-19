@@ -6,7 +6,7 @@ import { getPublishedProperties } from "@/lib/properties";
 export const metadata: Metadata = {
   title: "Propiedades | Mosconi Inmobiliaria",
   description:
-    "Portafolio de propiedades en venta y alquiler de Mosconi Inmobiliaria en Salta Capital, Zona Norte, Tres Cerritos, San Lorenzo y Vaqueros.",
+    "Portafolio de propiedades en venta y alquiler de Mosconi Inmobiliaria en Salta Capital y el interior de la provincia.",
 };
 
 export default async function PropiedadesPage() {
@@ -17,7 +17,7 @@ export default async function PropiedadesPage() {
       <PageHero
         eyebrow="Portafolio"
         title="Propiedades"
-        subtitle="Venta y alquiler en Salta Capital, Zona Norte, Tres Cerritos, San Lorenzo y Vaqueros."
+        subtitle="Venta y alquiler en Salta Capital y el interior de la provincia."
       />
 
       <section className="bg-ink py-20 sm:py-24">

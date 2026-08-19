@@ -1,5 +1,7 @@
 import { Reveal } from "@/components/ui/Reveal";
+import { FacebookIcon } from "@/components/ui/FacebookIcon";
 import { Glow } from "@/components/ui/Glow";
+import { InstagramIcon } from "@/components/ui/InstagramIcon";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { business } from "@/lib/content";
 
@@ -20,7 +22,7 @@ export default function ClosingCta() {
           </p>
         </Reveal>
 
-        <Reveal delay={0.15} className="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <Reveal delay={0.15} className="mt-10 flex flex-col items-center justify-center gap-4">
           <a
             href={business.whatsappUrl}
             target="_blank"
@@ -29,6 +31,30 @@ export default function ClosingCta() {
           >
             <WhatsAppIcon size={18} />
             Escribinos por WhatsApp
+            <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
+              →
+            </span>
+          </a>
+          <a
+            href={business.facebookUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2.5 rounded-full bg-pink px-7 py-3.5 font-mono text-[0.75rem] tracking-[0.1em] uppercase text-paper transition-colors hover:bg-pink-bright"
+          >
+            <FacebookIcon size={18} />
+            Seguinos en Facebook
+            <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
+              →
+            </span>
+          </a>
+          <a
+            href={business.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2.5 rounded-full bg-pink px-7 py-3.5 font-mono text-[0.75rem] tracking-[0.1em] uppercase text-paper transition-colors hover:bg-pink-bright"
+          >
+            <InstagramIcon size={18} />
+            Seguinos en Instagram
             <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
               →
             </span>

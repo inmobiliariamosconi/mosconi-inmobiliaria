@@ -13,6 +13,7 @@ export const business = {
   tagline: "Inmobiliaria en Salta",
   yearsActive: 21,
   facebookUrl: "https://www.facebook.com/mosconig",
+  instagramUrl: "https://www.instagram.com/inmobiliaria_mosconi",
   whatsappNumber: "+54 9 3874 45-0303",
   whatsappUrl: whatsappLink("Hola, me gustaría recibir información sobre Mosconi Inmobiliaria."),
   description:

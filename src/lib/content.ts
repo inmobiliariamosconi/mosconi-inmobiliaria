@@ -16,6 +16,11 @@ export const business = {
   instagramUrl: "https://www.instagram.com/inmobiliaria_mosconi",
   whatsappNumber: "+54 9 3874 45-0303",
   whatsappUrl: whatsappLink("Hola, me gustaría recibir información sobre Mosconi Inmobiliaria."),
+  phoneUrl: `tel:+${whatsappDigits}`,
+  mapsUrl:
+    "https://www.google.com/maps/search/G%20MOSCONI%20INMOBILIARIA/@-24.779699325561523,-65.4031982421875,17z?hl=es",
+  mapsEmbedUrl:
+    "https://www.google.com/maps?q=-24.779699325561523,-65.4031982421875&z=17&output=embed",
   description:
     "Inmobiliaria en Salta especializada en venta y alquiler de propiedades, tasaciones y desarrollos inmobiliarios. Brindamos asesoramiento inmobiliario personalizado para familias, inversores y compradores locales y extranjeros.",
 };
@@ -24,6 +29,7 @@ export const navLinks = [
   { href: "/", label: "Inicio" },
   { href: "/propiedades", label: "Propiedades" },
   { href: "/tasaciones", label: "Tasaciones" },
+  { href: "/#nosotros", label: "Nosotros" },
 ];
 
 export type Zone = {

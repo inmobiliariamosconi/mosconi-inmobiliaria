@@ -7,7 +7,10 @@ import { business } from "@/lib/content";
 
 export default function ClosingCta() {
   return (
-    <section className="relative overflow-hidden bg-ink py-28 text-paper sm:py-32">
+    <section
+      id="nosotros"
+      className="relative scroll-mt-24 overflow-hidden bg-ink py-28 text-paper sm:py-32"
+    >
       <Glow className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" size={560} animate={false} />
       <div className="relative mx-auto max-w-3xl px-6 text-center lg:px-8">
         <Reveal>
@@ -59,6 +62,13 @@ export default function ClosingCta() {
               →
             </span>
           </a>
+
+          <p className="mt-2 font-body text-sm text-paper/55">
+            o llamá al{" "}
+            <a href={business.phoneUrl} className="text-paper underline decoration-stone-line underline-offset-4 hover:text-pink">
+              {business.whatsappNumber}
+            </a>
+          </p>
         </Reveal>
       </div>
     </section>

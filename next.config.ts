@@ -28,6 +28,7 @@ const csp = [
   "font-src 'self' data:",
   `connect-src 'self' ${supabaseOrigin}`.trim(),
   "object-src 'none'",
+  "frame-src https://www.google.com",
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",

@@ -15,7 +15,7 @@ export default function ClosingCta() {
           <p className="mt-6 font-display text-3xl leading-snug font-medium tracking-[-0.01em] sm:text-4xl">
             &ldquo;Donde tus proyectos comienzan a hacerse realidad.&rdquo;
           </p>
-          <p className="mt-6 font-body text-sm text-paper/55">
+          <p className="mt-6 font-display text-2xl text-paper/70 sm:text-3xl">
             {business.yearsActive} años de trayectoria.
           </p>
         </Reveal>

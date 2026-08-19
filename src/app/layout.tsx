@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo, DM_Serif_Display, Instrument_Sans } from "next/font/google";
 import { MotionProvider } from "@/components/MotionProvider";
-import { business } from "@/lib/content";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -25,20 +24,22 @@ const dmSerifDisplay = DM_Serif_Display({
 const description =
   "Inmobiliaria en Salta especializada en venta y alquiler de propiedades, tasaciones y desarrollos inmobiliarios. Más de 21 años de trayectoria en Salta Capital y el interior de la provincia.";
 
+const siteTitle = "Inmobiliaria Graciela Mosconi | Salta";
+
 export const metadata: Metadata = {
-  title: "Mosconi Inmobiliaria | Salta",
+  title: siteTitle,
   description,
   openGraph: {
-    title: business.legalName,
+    title: siteTitle,
     description,
     url: "https://inmobiliariamosconi.com",
-    siteName: business.legalName,
+    siteName: "Inmobiliaria Graciela Mosconi",
     locale: "es_AR",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: business.legalName,
+    title: siteTitle,
     description,
   },
 };

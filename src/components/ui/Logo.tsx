@@ -36,19 +36,26 @@ export function Logo({
   variant?: "default" | "wordmark";
 }) {
   if (variant === "wordmark") {
+    // Text scales with `size` (calibrated so size=40 matches the original
+    // fixed 1rem/0.55rem values exactly) so each usage stays proportional
+    // instead of every instance sharing one fixed font size.
     return (
       <span className="inline-flex items-center gap-3">
         <LogoMark size={size} priority={priority} />
         <span className="flex flex-col items-center leading-none">
           <span
-            className={`font-display text-[1rem] tracking-[-0.01em] uppercase ${
+            style={{ fontSize: size * 0.4 }}
+            className={`font-display tracking-[-0.01em] uppercase ${
               tone === "dark" ? "text-ink" : "text-paper"
             }`}
           >
             <span className="font-normal">Graciela </span>
             <span className="font-extrabold">Mosconi</span>
           </span>
-          <span className="mt-1 font-mono text-[0.55rem] tracking-[0.22em] text-pink uppercase">
+          <span
+            style={{ fontSize: size * 0.22 }}
+            className="mt-1 font-mono tracking-[0.22em] text-pink uppercase"
+          >
             Inmobiliaria
           </span>
         </span>
